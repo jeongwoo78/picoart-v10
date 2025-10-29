@@ -1,0 +1,302 @@
+/* ============================================
+   Artwork Card Component
+   ============================================ */
+
+.artwork-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid #e2e8f0;
+  position: relative;
+}
+
+.artwork-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #cbd5e0;
+}
+
+.artwork-card.selected {
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   이미지 영역
+   ============================================ */
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; /* 3:4 비율 (세로가 긴 전통적인 작품 비율) */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artwork-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   오버레이 (호버 시)
+   ============================================ */
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  color: white;
+  width: 100%;
+}
+
+.artwork-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.artwork-artist {
+  font-size: 13px;
+  margin: 0 0 2px 0;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.artwork-year {
+  font-size: 11px;
+  margin: 0;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ============================================
+   선택 표시
+   ============================================ */
+
+.selected-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: #667eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+  animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.checkmark {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ============================================
+   카드 푸터 (메타 정보)
+   ============================================ */
+
+.card-footer {
+  padding: 12px;
+  background: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.meta-badges {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.type-badge {
+  color: #4a5568;
+}
+
+.orientation-badge {
+  color: #718096;
+}
+
+.brightness-badge {
+  font-weight: 600;
+}
+
+/* ============================================
+   작품명 (하단)
+   ============================================ */
+
+.card-title-short {
+  margin-top: 8px;
+}
+
+.name-short {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artist-short {
+  font-size: 11px;
+  color: #718096;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================
+   반응형
+   ============================================ */
+
+@media (max-width: 768px) {
+  .card-image-wrapper {
+    padding-top: 140%; /* 모바일에서는 약간 더 세로로 */
+  }
+
+  .overlay-content {
+    padding: 12px;
+  }
+
+  .artwork-title {
+    font-size: 14px;
+  }
+
+  .artwork-artist {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-footer {
+    padding: 10px;
+  }
+
+  .meta-badges {
+    gap: 4px;
+  }
+
+  .badge {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  .name-short {
+    font-size: 12px;
+  }
+
+  .artist-short {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   접근성
+   ============================================ */
+
+.artwork-card:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+.artwork-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================
+   로딩 상태
+   ============================================ */
+
+.artwork-card.loading .card-image-wrapper {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e0e0e0 50%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.artwork-card.loading .card-image {
+  opacity: 0;
+}

@@ -1,0 +1,423 @@
+/* ============================================
+   Oriental Tab Styles
+   ============================================ */
+
+.oriental-tab {
+  width: 100%;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   서브카테고리 선택 버튼
+   ============================================ */
+
+.subcategory-selector {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subcategory-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.subcategory-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.subcategory-btn:hover::before {
+  left: 100%;
+}
+
+.subcategory-btn:hover {
+  border-color: #666;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.subcategory-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.subcategory-btn .flag {
+  font-size: 32px;
+}
+
+.subcategory-btn .label {
+  flex: 1;
+  text-align: left;
+}
+
+.subcategory-btn .count {
+  background: rgba(0,0,0,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.subcategory-btn.active .count {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ============================================
+   카테고리 설명
+   ============================================ */
+
+.category-description {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+}
+
+.category-description h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.category-description .description {
+  font-size: 16px;
+  color: #4a5568;
+  margin-bottom: 4px;
+}
+
+.category-description .years {
+  font-size: 14px;
+  color: #718096;
+  font-style: italic;
+}
+
+/* ============================================
+   작품 그리드
+   ============================================ */
+
+.artworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.artwork-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.artwork-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border-color: #667eea;
+}
+
+.artwork-card.selected {
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  transform: scale(1.02);
+}
+
+.artwork-image {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; /* 3:4 비율 */
+  overflow: hidden;
+  background: #f7fafc;
+}
+
+.artwork-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.artwork-card:hover .artwork-image img {
+  transform: scale(1.1);
+}
+
+/* 오버레이 */
+.artwork-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-overlay {
+  opacity: 1;
+}
+
+.artwork-info .artwork-name {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.artwork-info .artwork-artist {
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+}
+
+/* 메타 정보 */
+.artwork-meta {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #f7fafc;
+}
+
+.type-badge,
+.orientation-badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ============================================
+   선택된 작품 상세 정보 (모달)
+   ============================================ */
+
+.selected-artwork-detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  z-index: 1000;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.selected-artwork-detail::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+.detail-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.detail-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.detail-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.detail-info h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.detail-info .artist {
+  font-size: 16px;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.detail-info .style {
+  font-size: 14px;
+  color: #a0aec0;
+  margin-bottom: 16px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  background: #edf2f7;
+  color: #4a5568;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.technical-info {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #f7fafc;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #4a5568;
+}
+
+.close-detail-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #e2e8f0;
+  color: #2d3748;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-detail-btn:hover {
+  background: #cbd5e0;
+  transform: rotate(90deg);
+}
+
+/* ============================================
+   반응형 디자인
+   ============================================ */
+
+@media (max-width: 768px) {
+  .subcategory-selector {
+    flex-direction: column;
+  }
+
+  .subcategory-btn {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .artworks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .selected-artwork-detail {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .detail-content {
+    flex-direction: column;
+  }
+
+  .detail-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .artworks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-description h3 {
+    font-size: 22px;
+  }
+}
+
+/* ============================================
+   로딩 스켈레톤
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

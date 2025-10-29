@@ -1,0 +1,100 @@
+/* ============================================
+   Loading Skeleton
+   ============================================ */
+
+.loading-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.skeleton-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+}
+
+.skeleton-image {
+  width: 100%;
+  padding-top: 133%;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e8e8e8 50%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-footer {
+  padding: 12px;
+  background: #f7fafc;
+}
+
+.skeleton-badges {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.skeleton-badge {
+  width: 50px;
+  height: 24px;
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #d0d0d0 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+.skeleton-text {
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #d0d0d0 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.skeleton-text-title {
+  height: 16px;
+  width: 80%;
+}
+
+.skeleton-text-subtitle {
+  height: 14px;
+  width: 60%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .loading-skeleton-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
