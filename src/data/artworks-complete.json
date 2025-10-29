@@ -1,0 +1,1030 @@
+{
+  "version": "10.0.0",
+  "totalArtworks": 143,
+  "lastUpdated": "2025-10-30",
+  "categories": {
+    "greek_roman": {
+      "id": "01",
+      "name": "그리스·로마 미술",
+      "name_en": "Greek & Roman Art",
+      "period": "기원전 800년 ~ 서기 500년",
+      "count": 7,
+      "folder": "01_Greek_Roman",
+      "artworks": [
+        {
+          "id": "greek_01",
+          "filename": "greek_01_augustus_prima_porta.jpg",
+          "title": "아우구스투스 조각상",
+          "title_en": "Augustus of Prima Porta",
+          "dominantColors": ["#D4C5A9", "#8B7355", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_02",
+          "filename": "greek_02_apollo_belvedere.jpg",
+          "title": "아폴로 벨베데레",
+          "title_en": "Apollo Belvedere",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#8B7355"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_03",
+          "filename": "greek_03_pericles_bust.jpg",
+          "title": "페리클레스 흉상",
+          "title_en": "Pericles Bust",
+          "dominantColors": ["#D4C5A9", "#8B7355", "#000000"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_04",
+          "filename": "greek_04_venus_de_milo.jpg",
+          "title": "밀로의 비너스",
+          "title_en": "Venus de Milo",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#696969"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_05",
+          "filename": "greek_05_laocoon_group.jpg",
+          "title": "라오콘 군상",
+          "title_en": "Laocoön Group",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_06",
+          "filename": "greek_06_doryphoros.jpg",
+          "title": "도리포로스",
+          "title_en": "Doryphoros",
+          "dominantColors": ["#8B4513", "#D4C5A9", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "greek_07",
+          "filename": "greek_07_discus_thrower.jpg",
+          "title": "원반 던지는 사람",
+          "title_en": "Discobolus",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#696969"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "byzantine_islamic": {
+      "id": "02",
+      "name": "비잔틴·이슬람 미술",
+      "name_en": "Byzantine & Islamic Art",
+      "period": "4세기 ~ 15세기",
+      "count": 7,
+      "folder": "02_Byzantine_Islamic",
+      "artworks": [
+        {
+          "id": "byzantine_01",
+          "filename": "byzantine_01_christ_pantocrator.jpg",
+          "title": "전능하신 그리스도",
+          "title_en": "Christ Pantocrator",
+          "dominantColors": ["#DAA520", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "byzantine_02",
+          "filename": "byzantine_02_justinian_mosaic.jpg",
+          "title": "유스티니아누스 모자이크",
+          "title_en": "Justinian Mosaic",
+          "dominantColors": ["#DAA520", "#8B008B", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "byzantine_03",
+          "filename": "byzantine_03_theodora_mosaic.jpg",
+          "title": "테오도라 황후 모자이크",
+          "title_en": "Theodora Mosaic",
+          "dominantColors": ["#DAA520", "#8B008B", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "byzantine_04",
+          "filename": "byzantine_04_virgin_child_sinai.jpg",
+          "title": "시나이의 성모자",
+          "title_en": "Virgin and Child, Sinai",
+          "dominantColors": ["#DAA520", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "byzantine_05",
+          "filename": "byzantine_05_alhambra_pattern.jpg",
+          "title": "알함브라 궁전 문양",
+          "title_en": "Alhambra Pattern",
+          "dominantColors": ["#DAA520", "#8B4513", "#DC143C"],
+          "orientation": "square"
+        },
+        {
+          "id": "byzantine_06",
+          "filename": "byzantine_06_isfahan_tilework.jpg",
+          "title": "이스파한 타일 장식",
+          "title_en": "Isfahan Tilework",
+          "dominantColors": ["#4169E1", "#DAA520", "#FFFFFF"],
+          "orientation": "square"
+        },
+        {
+          "id": "byzantine_07",
+          "filename": "byzantine_07_dome_of_rock.jpg",
+          "title": "바위의 돔 내부",
+          "title_en": "Dome of the Rock Interior",
+          "dominantColors": ["#DAA520", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        }
+      ]
+    },
+    "renaissance": {
+      "id": "03",
+      "name": "르네상스",
+      "name_en": "Renaissance",
+      "period": "14세기 ~ 17세기",
+      "count": 7,
+      "folder": "03_Renaissance",
+      "artworks": [
+        {
+          "id": "renaissance_01",
+          "filename": "renaissance_01_mona_lisa.jpg",
+          "title": "모나리자",
+          "title_en": "Mona Lisa",
+          "artist": "레오나르도 다 빈치",
+          "dominantColors": ["#8B7355", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "renaissance_02",
+          "filename": "renaissance_02_raphael_self_portrait.jpg",
+          "title": "라파엘로 자화상",
+          "title_en": "Raphael Self-Portrait",
+          "artist": "라파엘로",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "renaissance_03",
+          "filename": "renaissance_03_venus_birth_face.jpg",
+          "title": "비너스의 탄생",
+          "title_en": "Birth of Venus (detail)",
+          "artist": "보티첼리",
+          "dominantColors": ["#FFE4B5", "#DAA520", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "renaissance_04",
+          "filename": "renaissance_04_david_michelangelo.jpg",
+          "title": "다비드 상",
+          "title_en": "David",
+          "artist": "미켈란젤로",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#8B7355"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "renaissance_05",
+          "filename": "renaissance_05_vitruvian_man.jpg",
+          "title": "비트루비우스적 인간",
+          "title_en": "Vitruvian Man",
+          "artist": "레오나르도 다 빈치",
+          "dominantColors": ["#F5DEB3", "#8B4513", "#000000"],
+          "orientation": "square"
+        },
+        {
+          "id": "renaissance_06",
+          "filename": "renaissance_06_school_athens_detail.jpg",
+          "title": "아테네 학당",
+          "title_en": "School of Athens (detail)",
+          "artist": "라파엘로",
+          "dominantColors": ["#D4A574", "#8B4513", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "renaissance_07",
+          "filename": "renaissance_07_lady_ermine.jpg",
+          "title": "흰 담비를 안은 여인",
+          "title_en": "Lady with an Ermine",
+          "artist": "레오나르도 다 빈치",
+          "dominantColors": ["#2F4F4F", "#8B4513", "#D4A574"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "baroque": {
+      "id": "04",
+      "name": "바로크",
+      "name_en": "Baroque",
+      "period": "17세기 ~ 18세기 초",
+      "count": 7,
+      "folder": "04_Baroque",
+      "artworks": [
+        {
+          "id": "baroque_01",
+          "filename": "baroque_01_caravaggio_bacchus.jpg",
+          "title": "바쿠스",
+          "title_en": "Bacchus",
+          "artist": "카라바조",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "baroque_02",
+          "filename": "baroque_02_rembrandt_self_portrait.jpg",
+          "title": "렘브란트 자화상",
+          "title_en": "Rembrandt Self-Portrait",
+          "artist": "렘브란트",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#DAA520"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "baroque_03",
+          "filename": "baroque_03_judith_holofernes.jpg",
+          "title": "유디트와 홀로페르네스",
+          "title_en": "Judith Beheading Holofernes",
+          "artist": "아르테미시아 젠틸레스키",
+          "dominantColors": ["#8B0000", "#8B4513", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "baroque_04",
+          "filename": "baroque_04_bernini_david.jpg",
+          "title": "다비드",
+          "title_en": "David",
+          "artist": "베르니니",
+          "dominantColors": ["#F5F5DC", "#D4C5A9", "#8B7355"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "baroque_05",
+          "filename": "baroque_05_rubens_marie_medici.jpg",
+          "title": "마리 드 메디치의 생애",
+          "title_en": "Marie de' Medici Cycle",
+          "artist": "루벤스",
+          "dominantColors": ["#DAA520", "#DC143C", "#4169E1"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "baroque_06",
+          "filename": "baroque_06_girl_pearl_earring.jpg",
+          "title": "진주 귀걸이를 한 소녀",
+          "title_en": "Girl with a Pearl Earring",
+          "artist": "베르메르",
+          "dominantColors": ["#2F4F4F", "#DAA520", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "baroque_07",
+          "filename": "baroque_07_las_meninas_detail.jpg",
+          "title": "시녀들",
+          "title_en": "Las Meninas (detail)",
+          "artist": "벨라스케스",
+          "dominantColors": ["#8B4513", "#D4A574", "#2F4F4F"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "rococo": {
+      "id": "05",
+      "name": "로코코",
+      "name_en": "Rococo",
+      "period": "18세기",
+      "count": 7,
+      "folder": "05_Rococo",
+      "artworks": [
+        {
+          "id": "rococo_01",
+          "filename": "rococo_01_fragonard_swing.jpg",
+          "title": "그네",
+          "title_en": "The Swing",
+          "artist": "프라고나르",
+          "dominantColors": ["#228B22", "#FFB6C1", "#87CEEB"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "rococo_02",
+          "filename": "rococo_02_watteau_cythera.jpg",
+          "title": "키테라 섬으로의 순례",
+          "title_en": "Pilgrimage to Cythera",
+          "artist": "와토",
+          "dominantColors": ["#87CEEB", "#228B22", "#D4A574"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "rococo_03",
+          "filename": "rococo_03_pompadour_portrait.jpg",
+          "title": "퐁파두르 부인",
+          "title_en": "Madame de Pompadour",
+          "artist": "부셰",
+          "dominantColors": ["#FFB6C1", "#87CEEB", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "rococo_04",
+          "filename": "rococo_04_chardin_soap_bubbles.jpg",
+          "title": "비누 방울",
+          "title_en": "Soap Bubbles",
+          "artist": "샤르댕",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "rococo_05",
+          "filename": "rococo_05_greuze_girl_head.jpg",
+          "title": "소녀의 머리",
+          "title_en": "Head of a Girl",
+          "artist": "그뢰즈",
+          "dominantColors": ["#D4A574", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "rococo_06",
+          "filename": "rococo_06_boucher_venus.jpg",
+          "title": "비너스의 화장",
+          "title_en": "Toilet of Venus",
+          "artist": "부셰",
+          "dominantColors": ["#FFB6C1", "#87CEEB", "#D4A574"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "rococo_07",
+          "filename": "rococo_07_watteau_gilles.jpg",
+          "title": "질",
+          "title_en": "Gilles",
+          "artist": "와토",
+          "dominantColors": ["#F5F5F5", "#FFB6C1", "#87CEEB"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "romanticism": {
+      "id": "06",
+      "name": "낭만주의",
+      "name_en": "Romanticism",
+      "period": "18세기 말 ~ 19세기 중반",
+      "count": 7,
+      "folder": "06_Romanticism",
+      "artworks": [
+        {
+          "id": "romantic_01",
+          "filename": "romantic_01_liberty_leading.jpg",
+          "title": "민중을 이끄는 자유의 여신",
+          "title_en": "Liberty Leading the People",
+          "artist": "들라크루아",
+          "dominantColors": ["#2F4F4F", "#DAA520", "#8B0000"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "romantic_02",
+          "filename": "romantic_02_medusa_raft.jpg",
+          "title": "메두사의 뗏목",
+          "title_en": "The Raft of the Medusa",
+          "artist": "제리코",
+          "dominantColors": ["#2F4F4F", "#8B4513", "#708090"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "romantic_03",
+          "filename": "romantic_03_wanderer_sea_fog.jpg",
+          "title": "안개 바다 위의 방랑자",
+          "title_en": "Wanderer above the Sea of Fog",
+          "artist": "프리드리히",
+          "dominantColors": ["#708090", "#2F4F4F", "#87CEEB"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "romantic_04",
+          "filename": "romantic_04_chopin_portrait.jpg",
+          "title": "쇼팽 초상",
+          "title_en": "Portrait of Chopin",
+          "artist": "들라크루아",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "romantic_05",
+          "filename": "romantic_05_madame_riviere.jpg",
+          "title": "리비에르 부인",
+          "title_en": "Madame Rivière",
+          "artist": "앵그르",
+          "dominantColors": ["#2F4F4F", "#D4A574", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "romantic_06",
+          "filename": "romantic_06_death_sardanapalus.jpg",
+          "title": "사르다나팔루스의 죽음",
+          "title_en": "Death of Sardanapalus",
+          "artist": "들라크루아",
+          "dominantColors": ["#8B0000", "#8B4513", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "romantic_07",
+          "filename": "romantic_07_caspar_david_self.jpg",
+          "title": "카스파 다비드 자화상",
+          "title_en": "Caspar David Friedrich Self-Portrait",
+          "artist": "프리드리히",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "impressionism": {
+      "id": "07",
+      "name": "인상주의",
+      "name_en": "Impressionism",
+      "period": "19세기 후반",
+      "count": 7,
+      "folder": "07_Impressionism",
+      "artworks": [
+        {
+          "id": "impressionist_01",
+          "filename": "impressionist_01_moulin_galette.jpg",
+          "title": "물랭 드 라 갈레트",
+          "title_en": "Bal du moulin de la Galette",
+          "artist": "르누아르",
+          "dominantColors": ["#4169E1", "#FFB6C1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_02",
+          "filename": "impressionist_02_impression_sunrise.jpg",
+          "title": "인상, 해돋이",
+          "title_en": "Impression, Sunrise",
+          "artist": "모네",
+          "dominantColors": ["#FF4500", "#4169E1", "#708090"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_03",
+          "filename": "impressionist_03_olympia_manet.jpg",
+          "title": "올랭피아",
+          "title_en": "Olympia",
+          "artist": "마네",
+          "dominantColors": ["#F5F5DC", "#8B4513", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_04",
+          "filename": "impressionist_04_ballet_class.jpg",
+          "title": "무용 수업",
+          "title_en": "The Ballet Class",
+          "artist": "드가",
+          "dominantColors": ["#D4A574", "#87CEEB", "#8B4513"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_05",
+          "filename": "impressionist_05_paris_rainy_day.jpg",
+          "title": "비 오는 날의 파리",
+          "title_en": "Paris Street; Rainy Day",
+          "artist": "카유보트",
+          "dominantColors": ["#708090", "#2F4F4F", "#D4A574"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_06",
+          "filename": "impressionist_06_luncheon_boating.jpg",
+          "title": "뱃놀이 파티의 점심",
+          "title_en": "Luncheon of the Boating Party",
+          "artist": "르누아르",
+          "dominantColors": ["#FFB6C1", "#87CEEB", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "impressionist_07",
+          "filename": "impressionist_07_woman_parasol.jpg",
+          "title": "양산을 쓴 여인",
+          "title_en": "Woman with a Parasol",
+          "artist": "모네",
+          "dominantColors": ["#87CEEB", "#228B22", "#F5F5F5"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "fauvism": {
+      "id": "08",
+      "name": "야수파",
+      "name_en": "Fauvism",
+      "period": "20세기 초",
+      "count": 7,
+      "folder": "08_Fauvism",
+      "artworks": [
+        {
+          "id": "fauvism_01",
+          "filename": "fauvism_01_derain_london_bridge.jpg",
+          "title": "런던 브리지",
+          "title_en": "London Bridge",
+          "artist": "드랭",
+          "dominantColors": ["#FF4500", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "fauvism_02",
+          "filename": "fauvism_02_derain_portrait_young_man.jpg",
+          "title": "젊은 남자의 초상",
+          "title_en": "Portrait of a Young Man",
+          "artist": "드랭",
+          "dominantColors": ["#8B4513", "#228B22", "#DC143C"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "fauvism_03",
+          "filename": "fauvism_03_The River Seine at Chatou.jpg",
+          "title": "샤투의 센 강",
+          "title_en": "The River Seine at Chatou",
+          "artist": "블라맹크",
+          "dominantColors": ["#4169E1", "#228B22", "#FF4500"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "fauvism_04",
+          "filename": "fauvism_04_vlaminck_portrait_pipe.jpg",
+          "title": "파이프를 든 자화상",
+          "title_en": "Self-Portrait with Pipe",
+          "artist": "블라맹크",
+          "dominantColors": ["#8B4513", "#DC143C", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "fauvism_05",
+          "filename": "fauvism_05_braque_landscape_estaque.jpg",
+          "title": "에스타크 풍경",
+          "title_en": "Landscape at L'Estaque",
+          "artist": "브라크",
+          "dominantColors": ["#228B22", "#4169E1", "#FF4500"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "fauvism_06",
+          "filename": "fauvism_06_matisse_green_line.jpg",
+          "title": "녹색 줄무늬",
+          "title_en": "Woman with a Hat (Green Stripe)",
+          "artist": "마티스",
+          "dominantColors": ["#228B22", "#FFB6C1", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "fauvism_07",
+          "filename": "fauvism_07_dufy_street_flags.jpg",
+          "title": "깃발이 있는 거리",
+          "title_en": "Street Decked with Flags",
+          "artist": "뒤피",
+          "dominantColors": ["#DC143C", "#4169E1", "#F5F5F5"],
+          "orientation": "landscape"
+        }
+      ]
+    },
+    "expressionism": {
+      "id": "09",
+      "name": "표현주의",
+      "name_en": "Expressionism",
+      "period": "20세기 초 ~ 중반",
+      "count": 7,
+      "folder": "09_Expressionism",
+      "artworks": [
+        {
+          "id": "expressionist_01",
+          "filename": "expressionist_01_kirchner_street_berlin.jpg",
+          "title": "베를린 거리",
+          "title_en": "Street, Berlin",
+          "artist": "키르히너",
+          "dominantColors": ["#FF1493", "#4169E1", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "expressionist_02",
+          "filename": "expressionist_02_kirchner_self_portrait.jpg",
+          "title": "키르히너 자화상",
+          "title_en": "Kirchner Self-Portrait",
+          "artist": "키르히너",
+          "dominantColors": ["#228B22", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "expressionist_03",
+          "filename": "expressionist_03_schiele_self_portrait.jpg",
+          "title": "쉴레 자화상",
+          "title_en": "Schiele Self-Portrait",
+          "artist": "쉴레",
+          "dominantColors": ["#8B4513", "#DC143C", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "expressionist_04",
+          "filename": "expressionist_04_schiele_embrace.jpg",
+          "title": "포옹",
+          "title_en": "The Embrace",
+          "artist": "쉴레",
+          "dominantColors": ["#8B4513", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "expressionist_05",
+          "filename": "expressionist_05_nolde_masks.jpg",
+          "title": "가면들",
+          "title_en": "Masks",
+          "artist": "놀데",
+          "dominantColors": ["#DC143C", "#FFD700", "#4169E1"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "expressionist_06",
+          "filename": "expressionist_06_munch_scream.jpg",
+          "title": "절규",
+          "title_en": "The Scream",
+          "artist": "뭉크",
+          "dominantColors": ["#FF4500", "#4169E1", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "expressionist_07",
+          "filename": "expressionist_07_kokoschka_portrait.jpg",
+          "title": "코코슈카 초상",
+          "title_en": "Kokoschka Portrait",
+          "artist": "코코슈카",
+          "dominantColors": ["#8B4513", "#DC143C", "#2F4F4F"],
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "masters": {
+      "id": "10",
+      "name": "거장 컬렉션",
+      "name_en": "Masters Collection",
+      "period": "19세기 ~ 20세기",
+      "count": 35,
+      "folder": "10_Masters",
+      "subCategories": {
+        "klimt": {
+          "name": "구스타프 클림트",
+          "name_en": "Gustav Klimt",
+          "count": 7
+        },
+        "picasso": {
+          "name": "파블로 피카소",
+          "name_en": "Pablo Picasso",
+          "count": 7
+        },
+        "vangogh": {
+          "name": "빈센트 반 고흐",
+          "name_en": "Vincent van Gogh",
+          "count": 7
+        },
+        "matisse": {
+          "name": "앙리 마티스",
+          "name_en": "Henri Matisse",
+          "count": 7
+        },
+        "munch": {
+          "name": "에드바르 뭉크",
+          "name_en": "Edvard Munch",
+          "count": 7
+        }
+      },
+      "artworks": [
+        {
+          "id": "klimt_01",
+          "filename": "klimt_01_kiss_full.jpg",
+          "title": "키스",
+          "title_en": "The Kiss",
+          "artist": "클림트",
+          "dominantColors": ["#DAA520", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "klimt_02",
+          "filename": "klimt_02_portrait_adele_bloch.jpg",
+          "title": "아델레 블로흐바우어의 초상",
+          "title_en": "Portrait of Adele Bloch-Bauer I",
+          "artist": "클림트",
+          "dominantColors": ["#DAA520", "#FFD700", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "klimt_03",
+          "filename": "klimt_03_judith_holofernes.jpg",
+          "title": "유디트와 홀로페르네스",
+          "title_en": "Judith and Holofernes",
+          "artist": "클림트",
+          "dominantColors": ["#DAA520", "#8B4513", "#DC143C"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "klimt_04",
+          "filename": "klimt_04_tree_of_life.jpg",
+          "title": "생명의 나무",
+          "title_en": "Tree of Life",
+          "artist": "클림트",
+          "dominantColors": ["#DAA520", "#228B22", "#8B4513"],
+          "orientation": "square"
+        },
+        {
+          "id": "klimt_05",
+          "filename": "klimt_05_water_serpents.jpg",
+          "title": "물뱀",
+          "title_en": "Water Serpents",
+          "artist": "클림트",
+          "dominantColors": ["#4169E1", "#DAA520", "#228B22"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "klimt_06",
+          "filename": "klimt_06_death_and_life.jpg",
+          "title": "죽음과 삶",
+          "title_en": "Death and Life",
+          "artist": "클림트",
+          "dominantColors": ["#2F4F4F", "#DAA520", "#DC143C"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "klimt_07",
+          "filename": "klimt_07_fulfillment.jpg",
+          "title": "성취",
+          "title_en": "Fulfillment",
+          "artist": "클림트",
+          "dominantColors": ["#DAA520", "#8B4513", "#DC143C"],
+          "orientation": "square"
+        },
+        {
+          "id": "picasso_01",
+          "filename": "picasso_01_Boy with a Pipe.jpg",
+          "title": "파이프를 든 소년",
+          "title_en": "Boy with a Pipe",
+          "artist": "피카소",
+          "dominantColors": ["#4169E1", "#D4A574", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "picasso_02",
+          "filename": "picasso_02_avignon_demoiselles.jpg",
+          "title": "아비뇽의 처녀들",
+          "title_en": "Les Demoiselles d'Avignon",
+          "artist": "피카소",
+          "dominantColors": ["#FFB6C1", "#4169E1", "#8B4513"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "picasso_03",
+          "filename": "picasso_03_Woman_with_Bangs.jpg",
+          "title": "앞머리가 있는 여인",
+          "title_en": "Woman with Bangs",
+          "artist": "피카소",
+          "dominantColors": ["#4169E1", "#228B22", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "picasso_04",
+          "filename": "picasso_04_weeping_woman.jpg",
+          "title": "우는 여인",
+          "title_en": "Weeping Woman",
+          "artist": "피카소",
+          "dominantColors": ["#228B22", "#FFD700", "#DC143C"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "picasso_05",
+          "filename": "picasso_05_old_guitarist.jpg",
+          "title": "늙은 기타리스트",
+          "title_en": "The Old Guitarist",
+          "artist": "피카소",
+          "dominantColors": ["#4169E1", "#8B4513", "#2F4F4F"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "picasso_06",
+          "filename": "picasso_06_three_musicians.jpg",
+          "title": "세 음악가",
+          "title_en": "Three Musicians",
+          "artist": "피카소",
+          "dominantColors": ["#8B4513", "#FFD700", "#DC143C"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "picasso_07",
+          "filename": "picasso_07_girl_before_mirror.jpg",
+          "title": "거울 앞의 소녀",
+          "title_en": "Girl before a Mirror",
+          "artist": "피카소",
+          "dominantColors": ["#DC143C", "#FFD700", "#4169E1"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "vangogh_01",
+          "filename": "vangogh_01_starry_night.jpg",
+          "title": "별이 빛나는 밤",
+          "title_en": "The Starry Night",
+          "artist": "반 고흐",
+          "dominantColors": ["#4169E1", "#FFD700", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "vangogh_02",
+          "filename": "vangogh_02_sunflowers.jpg",
+          "title": "해바라기",
+          "title_en": "Sunflowers",
+          "artist": "반 고흐",
+          "dominantColors": ["#FFD700", "#228B22", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "vangogh_03",
+          "filename": "vangogh_03_self_portrait_bandage.jpg",
+          "title": "붕대를 감은 자화상",
+          "title_en": "Self-Portrait with Bandaged Ear",
+          "artist": "반 고흐",
+          "dominantColors": ["#228B22", "#8B4513", "#4169E1"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "vangogh_04",
+          "filename": "vangogh_04_bedroom_arles.jpg",
+          "title": "아를의 침실",
+          "title_en": "Bedroom in Arles",
+          "artist": "반 고흐",
+          "dominantColors": ["#4169E1", "#FFD700", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "vangogh_05",
+          "filename": "vangogh_05_cafe_terrace_night.jpg",
+          "title": "밤의 카페 테라스",
+          "title_en": "Café Terrace at Night",
+          "artist": "반 고흐",
+          "dominantColors": ["#FFD700", "#4169E1", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "vangogh_06",
+          "filename": "vangogh_06_irises.jpg",
+          "title": "아이리스",
+          "title_en": "Irises",
+          "artist": "반 고흐",
+          "dominantColors": ["#4169E1", "#228B22", "#8B4513"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "vangogh_07",
+          "filename": "vangogh_07_wheat_field_cypresses.jpg",
+          "title": "사이프러스가 있는 밀밭",
+          "title_en": "Wheat Field with Cypresses",
+          "artist": "반 고흐",
+          "dominantColors": ["#228B22", "#FFD700", "#4169E1"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "matisse_01",
+          "filename": "matisse_01_dance.jpg",
+          "title": "춤",
+          "title_en": "Dance",
+          "artist": "마티스",
+          "dominantColors": ["#DC143C", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "matisse_02",
+          "filename": "matisse_02_woman_with_hat.jpg",
+          "title": "모자를 쓴 여인",
+          "title_en": "Woman with a Hat",
+          "artist": "마티스",
+          "dominantColors": ["#228B22", "#DC143C", "#4169E1"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "matisse_03",
+          "filename": "matisse_03_goldfish.jpg",
+          "title": "금붕어",
+          "title_en": "Goldfish",
+          "artist": "마티스",
+          "dominantColors": ["#DC143C", "#228B22", "#4169E1"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "matisse_04",
+          "filename": "matisse_04_blue_nude.jpg",
+          "title": "푸른 누드",
+          "title_en": "Blue Nude",
+          "artist": "마티스",
+          "dominantColors": ["#4169E1", "#FFB6C1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "matisse_05",
+          "filename": "matisse_05_dessert_harmony_red.jpg",
+          "title": "빨강의 조화",
+          "title_en": "The Dessert: Harmony in Red",
+          "artist": "마티스",
+          "dominantColors": ["#DC143C", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "matisse_06",
+          "filename": "matisse_06_music.jpg",
+          "title": "음악",
+          "title_en": "Music",
+          "artist": "마티스",
+          "dominantColors": ["#DC143C", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "matisse_07",
+          "filename": "matisse_07_red_studio.jpg",
+          "title": "붉은 작업실",
+          "title_en": "The Red Studio",
+          "artist": "마티스",
+          "dominantColors": ["#DC143C", "#4169E1", "#228B22"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "munch_01",
+          "filename": "munch_01_madonna.jpg",
+          "title": "마돈나",
+          "title_en": "Madonna",
+          "artist": "뭉크",
+          "dominantColors": ["#8B0000", "#2F4F4F", "#D4A574"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "munch_02",
+          "filename": "munch_02_self_portrait_cigarette.jpg",
+          "title": "담배를 든 자화상",
+          "title_en": "Self-Portrait with Cigarette",
+          "artist": "뭉크",
+          "dominantColors": ["#2F4F4F", "#4169E1", "#8B4513"],
+          "orientation": "portrait"
+        },
+        {
+          "id": "munch_03",
+          "filename": "munch_03_anxiety.jpg",
+          "title": "불안",
+          "title_en": "Anxiety",
+          "artist": "뭉크",
+          "dominantColors": ["#FF4500", "#4169E1", "#2F4F4F"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "munch_04",
+          "filename": "munch_04_vampire.jpg",
+          "title": "뱀파이어",
+          "title_en": "Vampire",
+          "artist": "뭉크",
+          "dominantColors": ["#8B0000", "#2F4F4F", "#8B4513"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "munch_05",
+          "filename": "munch_05_girls_on_bridge.jpg",
+          "title": "다리 위의 소녀들",
+          "title_en": "Girls on the Bridge",
+          "artist": "뭉크",
+          "dominantColors": ["#4169E1", "#228B22", "#FFB6C1"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "munch_06",
+          "filename": "munch_06_death_sickroom.jpg",
+          "title": "병실에서의 죽음",
+          "title_en": "Death in the Sickroom",
+          "artist": "뭉크",
+          "dominantColors": ["#2F4F4F", "#8B4513", "#4169E1"],
+          "orientation": "landscape"
+        },
+        {
+          "id": "munch_07",
+          "filename": "munch_07_sun.jpg",
+          "title": "태양",
+          "title_en": "The Sun",
+          "artist": "뭉크",
+          "dominantColors": ["#FFD700", "#FF4500", "#4169E1"],
+          "orientation": "landscape"
+        }
+      ]
+    },
+    "oriental": {
+      "id": "11",
+      "name": "동양화",
+      "name_en": "Oriental Art",
+      "period": "고대 ~ 근대",
+      "count": 45,
+      "folder": "11_Oriental",
+      "subCategories": {
+        "chinese": {
+          "name": "중국 수묵화",
+          "name_en": "Chinese Ink Painting",
+          "flag": "🇨🇳",
+          "count": 15
+        },
+        "japanese": {
+          "name": "일본 우키요에",
+          "name_en": "Japanese Ukiyo-e",
+          "flag": "🇯🇵",
+          "count": 15
+        },
+        "korean": {
+          "name": "한국 전통화",
+          "name_en": "Korean Traditional Painting",
+          "flag": "🇰🇷",
+          "count": 15
+        }
+      }
+    }
+  }
+}
