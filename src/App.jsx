@@ -13,15 +13,40 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const fileInputRef = useRef(null)
 
-  // File selection handler
+  // File selection handler with resize
   const handleImageUpload = (e) => {
     const file = e.target.files[0]
     if (file && file.type.startsWith('image/')) {
       const reader = new FileReader()
       reader.onload = (e) => {
-        setSelectedImage(e.target.result)
-        setResultImage(null)
-        setSelectedArtwork(null)
+        const img = new Image()
+        img.onload = () => {
+          // Resize image to max 1024px
+          const canvas = document.createElement('canvas')
+          const ctx = canvas.getContext('2d')
+          
+          let width = img.width
+          let height = img.height
+          const maxSize = 1024
+          
+          if (width > height && width > maxSize) {
+            height = (height * maxSize) / width
+            width = maxSize
+          } else if (height > maxSize) {
+            width = (width * maxSize) / height
+            height = maxSize
+          }
+          
+          canvas.width = width
+          canvas.height = height
+          ctx.drawImage(img, 0, 0, width, height)
+          
+          const resizedImage = canvas.toDataURL('image/jpeg', 0.8)
+          setSelectedImage(resizedImage)
+          setResultImage(null)
+          setSelectedArtwork(null)
+        }
+        img.src = e.target.result
       }
       reader.readAsDataURL(file)
     }

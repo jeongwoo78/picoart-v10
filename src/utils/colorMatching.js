@@ -191,36 +191,55 @@ function findBestArtwork(photoHSV, photoAnalysis, artworksData, selectedCategory
     let bestMatch = null;
     let bestScore = -Infinity;
     
+    // Detect if photo is likely a portrait (person)
+    const isLikelyPortrait = photoAnalysis.orientation === 'portrait' && 
+                             photoAnalysis.aspectRatio < 1.0;
+    
     categoryData.artworks.forEach(artwork => {
         // Get artwork color and brightness from dominantColors
         const artworkHSV = getArtworkHSV(artwork.dominantColors);
         const artworkBrightness = calculateArtworkBrightness(artwork.dominantColors);
         
-        // 1. Color similarity (60% weight)
+        // 1. Color similarity (70% weight) - INCREASED!
         const colorDistance = calculateHSVDistance(photoHSV, artworkHSV);
-        let colorScore = (100 - colorDistance) * 0.6;
+        let colorScore = (100 - colorDistance) * 0.7;
         
         // 2. Brightness similarity (20% weight)
         const brightnessDiff = Math.abs(photoAnalysis.brightness - artworkBrightness);
         let brightnessScore = (100 - brightnessDiff) * 0.2;
         
-        // 3. Orientation matching bonus (20% weight)
+        // 3. Orientation matching bonus (10% weight) - DECREASED!
         let orientationBonus = 0;
         if (photoAnalysis.orientation === artwork.orientation) {
-            orientationBonus = 20;
+            orientationBonus = 10;
         }
         
         // 4. Additional heuristic bonus
         let heuristicBonus = 0;
         
+        // Portrait photo prefers portrait artworks with people
+        if (isLikelyPortrait && artwork.style && 
+            (artwork.style.includes('인물') || 
+             artwork.style.includes('portrait') ||
+             artwork.title.includes('미인') ||
+             artwork.title.includes('궁녀'))) {
+            heuristicBonus += 15;  // Strong bonus for matching portraits
+        }
+        
         // Dark photo + Dark artwork = bonus
         if (photoAnalysis.brightness < 40 && artworkBrightness < 40) {
-            heuristicBonus += 8;
+            heuristicBonus += 5;
         }
         
         // Bright photo + Bright artwork = bonus
         if (photoAnalysis.brightness > 70 && artworkBrightness > 70) {
-            heuristicBonus += 8;
+            heuristicBonus += 5;
+        }
+        
+        // Color harmony bonus (similar hue range)
+        const hueDiff = Math.abs(photoHSV.h - artworkHSV.h);
+        if (hueDiff < 30 || hueDiff > 330) {
+            heuristicBonus += 10;  // Very similar colors
         }
         
         // Calculate final score

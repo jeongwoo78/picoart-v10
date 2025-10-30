@@ -3,6 +3,7 @@ import './OrientalTab.css';
 
 const OrientalTab = ({ artworkDatabase, onArtworkSelect, onCategoryChange, selectedArtwork }) => {
   const [selectedCategory, setSelectedCategory] = useState('korean');
+  const [showDetailModal, setShowDetailModal] = useState(false);
 
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -15,6 +16,11 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect, onCategoryChange, selec
     if (onArtworkSelect) {
       onArtworkSelect(artwork);
     }
+    setShowDetailModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDetailModal(false);
   };
 
   const currentCategory = artworkDatabase.categories[selectedCategory];
@@ -88,8 +94,8 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect, onCategoryChange, selec
         ))}
       </div>
 
-      {/* Selected artwork detail */}
-      {selectedArtwork && (
+      {/* Selected artwork detail modal */}
+      {selectedArtwork && showDetailModal && (
         <div className="selected-artwork-detail">
           <div className="detail-content">
             <img
@@ -112,7 +118,7 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect, onCategoryChange, selec
           </div>
           <button 
             className="close-detail-btn"
-            onClick={() => onArtworkSelect && onArtworkSelect(null)}
+            onClick={handleCloseModal}
           >
             ✕
           </button>
