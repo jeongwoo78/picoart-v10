@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
 import './OrientalTab.css';
 
-const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
-  const [selectedSubcategory, setSelectedSubcategory] = useState('korean');
-  const [selectedArtwork, setSelectedArtwork] = useState(null);
+const OrientalTab = ({ artworkDatabase, onArtworkSelect, onCategoryChange, selectedArtwork }) => {
+  const [selectedCategory, setSelectedCategory] = useState('korean');
 
-  const oriental = artworkDatabase.oriental;
-  const currentSubcategory = oriental.subcategories.find(
-    sub => sub.id === selectedSubcategory
-  );
-
-  const handleSubcategoryChange = (subcategoryId) => {
-    setSelectedSubcategory(subcategoryId);
-    setSelectedArtwork(null);
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategory(categoryId);
+    if (onCategoryChange) {
+      onCategoryChange(categoryId);
+    }
   };
 
   const handleArtworkClick = (artwork) => {
-    setSelectedArtwork(artwork);
     if (onArtworkSelect) {
       onArtworkSelect(artwork);
     }
   };
 
+  const currentCategory = artworkDatabase.categories[selectedCategory];
+
   return (
     <div className="oriental-tab">
-      {/* 서브카테고리 선택 버튼 */}
+      {/* Subcategory selection buttons */}
       <div className="subcategory-selector">
         <button
-          className={`subcategory-btn ${selectedSubcategory === 'korean' ? 'active' : ''}`}
-          onClick={() => handleSubcategoryChange('korean')}
+          className={`subcategory-btn ${selectedCategory === 'korean' ? 'active' : ''}`}
+          onClick={() => handleCategoryChange('korean')}
         >
           <span className="flag">🇰🇷</span>
           <span className="label">한국 전통화</span>
@@ -36,8 +33,8 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
         </button>
 
         <button
-          className={`subcategory-btn ${selectedSubcategory === 'chinese' ? 'active' : ''}`}
-          onClick={() => handleSubcategoryChange('chinese')}
+          className={`subcategory-btn ${selectedCategory === 'chinese' ? 'active' : ''}`}
+          onClick={() => handleCategoryChange('chinese')}
         >
           <span className="flag">🇨🇳</span>
           <span className="label">중국 수묵화</span>
@@ -45,8 +42,8 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
         </button>
 
         <button
-          className={`subcategory-btn ${selectedSubcategory === 'japanese' ? 'active' : ''}`}
-          onClick={() => handleSubcategoryChange('japanese')}
+          className={`subcategory-btn ${selectedCategory === 'japanese' ? 'active' : ''}`}
+          onClick={() => handleCategoryChange('japanese')}
         >
           <span className="flag">🇯🇵</span>
           <span className="label">일본 우키요에</span>
@@ -54,16 +51,15 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
         </button>
       </div>
 
-      {/* 카테고리 설명 */}
+      {/* Category description */}
       <div className="category-description">
-        <h3>{currentSubcategory.name}</h3>
-        <p className="description">{currentSubcategory.description}</p>
-        <p className="years">{currentSubcategory.years}</p>
+        <h3>{currentCategory.name}</h3>
+        <p className="description">{currentCategory.description || currentCategory.name_en}</p>
       </div>
 
-      {/* 작품 그리드 */}
+      {/* Artworks grid */}
       <div className="artworks-grid">
-        {currentSubcategory.artworks.map((artwork) => (
+        {currentCategory.artworks.map((artwork) => (
           <div
             key={artwork.id}
             className={`artwork-card ${selectedArtwork?.id === artwork.id ? 'selected' : ''}`}
@@ -71,55 +67,52 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
           >
             <div className="artwork-image">
               <img
-                src={`/artworks/${artwork.file}`}
-                alt={artwork.name}
+                src={`/artworks/11_Oriental/${artwork.filename}`}
+                alt={artwork.title}
                 loading="lazy"
               />
               <div className="artwork-overlay">
                 <div className="artwork-info">
-                  <p className="artwork-name">{artwork.name}</p>
+                  <p className="artwork-name">{artwork.title}</p>
                   <p className="artwork-artist">{artwork.artist}</p>
                 </div>
               </div>
             </div>
             
-            {/* 작품 메타 정보 */}
+            {/* Artwork metadata */}
             <div className="artwork-meta">
-              <span className="type-badge">{getTypeBadge(artwork.type)}</span>
+              <span className="type-badge">{artwork.style}</span>
               <span className="orientation-badge">{getOrientationIcon(artwork.orientation)}</span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 선택된 작품 상세 정보 */}
+      {/* Selected artwork detail */}
       {selectedArtwork && (
         <div className="selected-artwork-detail">
           <div className="detail-content">
             <img
-              src={`/artworks/${selectedArtwork.file}`}
-              alt={selectedArtwork.name}
+              src={`/artworks/11_Oriental/${selectedArtwork.filename}`}
+              alt={selectedArtwork.title}
               className="detail-image"
             />
             <div className="detail-info">
-              <h4>{selectedArtwork.name}</h4>
+              <h4>{selectedArtwork.title}</h4>
               <p className="artist">{selectedArtwork.artist} · {selectedArtwork.year}</p>
               <p className="style">{selectedArtwork.style}</p>
-              <div className="tags">
-                {selectedArtwork.tags.map((tag, index) => (
-                  <span key={index} className="tag">#{tag}</span>
-                ))}
-              </div>
+              {selectedArtwork.description && (
+                <p className="description">{selectedArtwork.description}</p>
+              )}
               <div className="technical-info">
-                <span>밝기: {selectedArtwork.brightness}</span>
                 <span>방향: {selectedArtwork.orientation}</span>
-                <span>유형: {selectedArtwork.type}</span>
+                <span>스타일: {selectedArtwork.style}</span>
               </div>
             </div>
           </div>
           <button 
             className="close-detail-btn"
-            onClick={() => setSelectedArtwork(null)}
+            onClick={() => onArtworkSelect && onArtworkSelect(null)}
           >
             ✕
           </button>
@@ -129,18 +122,7 @@ const OrientalTab = ({ artworkDatabase, onArtworkSelect }) => {
   );
 };
 
-// 유틸리티 함수들
-function getTypeBadge(type) {
-  const typeMap = {
-    'portrait': '👤 인물',
-    'landscape': '🏔️ 풍경',
-    'animal': '🐯 동물',
-    'still-life': '🌸 정물',
-    'abstract': '🎨 추상'
-  };
-  return typeMap[type] || type;
-}
-
+// Utility function
 function getOrientationIcon(orientation) {
   const iconMap = {
     'portrait': '⬆️',

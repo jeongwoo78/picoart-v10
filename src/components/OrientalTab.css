@@ -8,7 +8,7 @@
   animation: fadeIn 0.3s ease-in;
 }
 
-/* 페이드인 애니메이션 */
+/* Fade in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -21,7 +21,7 @@
 }
 
 /* ============================================
-   서브카테고리 선택 버튼
+   Subcategory selection buttons
    ============================================ */
 
 .subcategory-selector {
@@ -100,7 +100,7 @@
 }
 
 /* ============================================
-   카테고리 설명
+   Category description
    ============================================ */
 
 .category-description {
@@ -131,7 +131,7 @@
 }
 
 /* ============================================
-   작품 그리드
+   Artworks grid
    ============================================ */
 
 .artworks-grid {
@@ -166,7 +166,7 @@
 .artwork-image {
   position: relative;
   width: 100%;
-  padding-top: 133%; /* 3:4 비율 */
+  padding-top: 133%; /* 3:4 ratio */
   overflow: hidden;
   background: #f7fafc;
 }
@@ -185,7 +185,7 @@
   transform: scale(1.1);
 }
 
-/* 오버레이 */
+/* Overlay */
 .artwork-overlay {
   position: absolute;
   bottom: 0;
@@ -213,7 +213,7 @@
   font-size: 12px;
 }
 
-/* 메타 정보 */
+/* Metadata */
 .artwork-meta {
   display: flex;
   gap: 8px;
@@ -231,7 +231,7 @@
 }
 
 /* ============================================
-   선택된 작품 상세 정보 (모달)
+   Selected artwork detail (Modal)
    ============================================ */
 
 .selected-artwork-detail {
@@ -361,7 +361,7 @@
 }
 
 /* ============================================
-   반응형 디자인
+   Responsive design
    ============================================ */
 
 @media (max-width: 768px) {
@@ -404,7 +404,7 @@
 }
 
 /* ============================================
-   로딩 스켈레톤
+   Loading skeleton
    ============================================ */
 
 .skeleton {

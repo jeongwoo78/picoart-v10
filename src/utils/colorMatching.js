@@ -1,10 +1,10 @@
 // ============================================
-// PicoArt v10 - 개선된 색상 매칭 알고리즘
-// 색상(60%) + 밝기(20%) + 방향(20%) + 휴리스틱 보너스
+// PicoArt v10 - Improved Color Matching Algorithm
+// Color(60%) + Brightness(20%) + Orientation(20%) + Heuristic Bonus
 // ============================================
 
 // ============================================
-// 1. HSV 변환 함수
+// 1. RGB to HSV conversion
 // ============================================
 function rgbToHsv(r, g, b) {
     r /= 255;
@@ -37,10 +37,22 @@ function rgbToHsv(r, g, b) {
 }
 
 // ============================================
-// 2. HSV 거리 계산 (색상 유사도)
+// 2. Hex to RGB conversion
+// ============================================
+function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+// ============================================
+// 3. HSV distance calculation
 // ============================================
 function calculateHSVDistance(hsv1, hsv2) {
-    // Hue는 원형이므로 최소 각도 차이 계산
+    // Hue is circular, calculate minimum angle difference
     const hueDiff = Math.min(
         Math.abs(hsv1.h - hsv2.h),
         360 - Math.abs(hsv1.h - hsv2.h)
@@ -49,7 +61,7 @@ function calculateHSVDistance(hsv1, hsv2) {
     const satDiff = Math.abs(hsv1.s - hsv2.s);
     const valDiff = Math.abs(hsv1.v - hsv2.v);
     
-    // 가중치
+    // Weights
     const hueWeight = 0.5;
     const satWeight = 0.3;
     const valWeight = 0.2;
@@ -58,7 +70,7 @@ function calculateHSVDistance(hsv1, hsv2) {
 }
 
 // ============================================
-// 3. 사진 분석 함수 (NEW!)
+// 4. Photo analysis
 // ============================================
 function analyzePhoto(imageElement) {
     const canvas = document.createElement('canvas');
@@ -71,7 +83,7 @@ function analyzePhoto(imageElement) {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const pixels = imageData.data;
     
-    // 1. 전체 밝기 계산
+    // 1. Calculate overall brightness
     let totalBrightness = 0;
     for (let i = 0; i < pixels.length; i += 4) {
         const r = pixels[i];
@@ -81,7 +93,7 @@ function analyzePhoto(imageElement) {
     }
     const avgBrightness = totalBrightness / (pixels.length / 4) / 255 * 100;
     
-    // 2. 가로/세로 비율
+    // 2. Aspect ratio
     const aspectRatio = canvas.width / canvas.height;
     let orientation = 'square';
     if (aspectRatio < 0.8) orientation = 'portrait';
@@ -95,13 +107,13 @@ function analyzePhoto(imageElement) {
 }
 
 // ============================================
-// 4. 지배적 색상 추출 (기존 방식)
+// 5. Extract dominant color
 // ============================================
 function extractDominantColor(imageElement) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     
-    // 성능을 위해 작은 크기로 리사이즈
+    // Resize for performance
     const targetSize = 100;
     const scale = Math.min(targetSize / imageElement.width, targetSize / imageElement.height);
     canvas.width = imageElement.width * scale;
@@ -112,7 +124,7 @@ function extractDominantColor(imageElement) {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const pixels = imageData.data;
     
-    // RGB 평균 계산
+    // Calculate RGB average
     let r = 0, g = 0, b = 0;
     const pixelCount = pixels.length / 4;
     
@@ -130,53 +142,88 @@ function extractDominantColor(imageElement) {
 }
 
 // ============================================
-// 5. 개선된 매칭 함수 (핵심!)
+// 6. Calculate artwork brightness from hex colors
+// ============================================
+function calculateArtworkBrightness(dominantColors) {
+    if (!dominantColors || dominantColors.length === 0) {
+        return 50; // default medium brightness
+    }
+    
+    let totalBrightness = 0;
+    dominantColors.forEach(hexColor => {
+        const rgb = hexToRgb(hexColor);
+        if (rgb) {
+            totalBrightness += (rgb.r + rgb.g + rgb.b) / 3;
+        }
+    });
+    
+    return (totalBrightness / dominantColors.length) / 255 * 100;
+}
+
+// ============================================
+// 7. Get artwork HSV from dominant colors
+// ============================================
+function getArtworkHSV(dominantColors) {
+    if (!dominantColors || dominantColors.length === 0) {
+        return { h: 0, s: 0, v: 50 }; // default
+    }
+    
+    // Use first dominant color
+    const rgb = hexToRgb(dominantColors[0]);
+    if (!rgb) {
+        return { h: 0, s: 0, v: 50 };
+    }
+    
+    return rgbToHsv(rgb.r, rgb.g, rgb.b);
+}
+
+// ============================================
+// 8. Improved matching function
 // ============================================
 function findBestArtwork(photoHSV, photoAnalysis, artworksData, selectedCategory) {
-    const categoryArtworks = artworksData.categories[selectedCategory];
+    const categoryData = artworksData.categories[selectedCategory];
+    
+    if (!categoryData || !categoryData.artworks) {
+        console.error('Invalid category:', selectedCategory);
+        return null;
+    }
     
     let bestMatch = null;
     let bestScore = -Infinity;
     
-    categoryArtworks.artworks.forEach(artwork => {
-        // 1. 기본 색상 유사도 (60% 가중치)
-        const colorDistance = calculateHSVDistance(photoHSV, artwork.hsv);
+    categoryData.artworks.forEach(artwork => {
+        // Get artwork color and brightness from dominantColors
+        const artworkHSV = getArtworkHSV(artwork.dominantColors);
+        const artworkBrightness = calculateArtworkBrightness(artwork.dominantColors);
+        
+        // 1. Color similarity (60% weight)
+        const colorDistance = calculateHSVDistance(photoHSV, artworkHSV);
         let colorScore = (100 - colorDistance) * 0.6;
         
-        // 2. 밝기 유사도 (20% 가중치)
-        const brightnessDiff = Math.abs(photoAnalysis.brightness - artwork.brightness);
+        // 2. Brightness similarity (20% weight)
+        const brightnessDiff = Math.abs(photoAnalysis.brightness - artworkBrightness);
         let brightnessScore = (100 - brightnessDiff) * 0.2;
         
-        // 3. 방향 매칭 보너스 (20% 가중치)
+        // 3. Orientation matching bonus (20% weight)
         let orientationBonus = 0;
         if (photoAnalysis.orientation === artwork.orientation) {
             orientationBonus = 20;
         }
         
-        // 4. 추가 휴리스틱 보너스
+        // 4. Additional heuristic bonus
         let heuristicBonus = 0;
         
-        // 세로 사진 + 인물화 = 보너스
-        if (photoAnalysis.orientation === 'portrait' && artwork.type === 'portrait') {
-            heuristicBonus += 10;
-        }
-        
-        // 가로 사진 + 풍경화 = 보너스
-        if (photoAnalysis.orientation === 'landscape' && artwork.type === 'landscape') {
-            heuristicBonus += 10;
-        }
-        
-        // 어두운 사진 + 어두운 작품 = 보너스
-        if (photoAnalysis.brightness < 40 && artwork.brightness < 40) {
+        // Dark photo + Dark artwork = bonus
+        if (photoAnalysis.brightness < 40 && artworkBrightness < 40) {
             heuristicBonus += 8;
         }
         
-        // 밝은 사진 + 밝은 작품 = 보너스
-        if (photoAnalysis.brightness > 70 && artwork.brightness > 70) {
+        // Bright photo + Bright artwork = bonus
+        if (photoAnalysis.brightness > 70 && artworkBrightness > 70) {
             heuristicBonus += 8;
         }
         
-        // 최종 점수 계산
+        // Calculate final score
         const finalScore = colorScore + brightnessScore + orientationBonus + heuristicBonus;
         
         if (finalScore > bestScore) {
@@ -189,39 +236,44 @@ function findBestArtwork(photoHSV, photoAnalysis, artworksData, selectedCategory
 }
 
 // ============================================
-// 6. 메인 함수 (통합)
+// 9. Main function
 // ============================================
-async function selectArtworkForPhoto(imageElement, artworksData, selectedCategory) {
-    // 1. 색상 추출 (기존 방식)
+function selectArtworkForPhoto(imageElement, artworksData, selectedCategory) {
+    // 1. Extract color
     const photoHSV = extractDominantColor(imageElement);
     
-    // 2. 사진 분석 (새로 추가)
+    // 2. Analyze photo
     const photoAnalysis = analyzePhoto(imageElement);
     
-    // 3. 개선된 매칭
+    // 3. Find best match
     const bestArtwork = findBestArtwork(photoHSV, photoAnalysis, artworksData, selectedCategory);
     
-    console.log('=== Photo Analysis ===');
-    console.log('HSV:', photoHSV);
-    console.log('Brightness:', Math.round(photoAnalysis.brightness));
-    console.log('Orientation:', photoAnalysis.orientation);
-    console.log('=== Selected Artwork ===');
-    console.log('ID:', bestArtwork.id);
-    console.log('Name:', bestArtwork.name);
-    console.log('Type:', bestArtwork.type);
-    console.log('======================');
+    if (bestArtwork) {
+        console.log('=== Photo Analysis ===');
+        console.log('HSV:', photoHSV);
+        console.log('Brightness:', Math.round(photoAnalysis.brightness));
+        console.log('Orientation:', photoAnalysis.orientation);
+        console.log('=== Selected Artwork ===');
+        console.log('ID:', bestArtwork.id);
+        console.log('Title:', bestArtwork.title);
+        console.log('Style:', bestArtwork.style);
+        console.log('======================');
+    }
     
     return bestArtwork;
 }
 
 // ============================================
-// 7. Export (ES6 모듈)
+// 10. Export (ES6 modules)
 // ============================================
 export {
     rgbToHsv,
+    hexToRgb,
     calculateHSVDistance,
     extractDominantColor,
     analyzePhoto,
+    calculateArtworkBrightness,
+    getArtworkHSV,
     findBestArtwork,
     selectArtworkForPhoto
 };

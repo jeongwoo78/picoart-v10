@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import './App.css'
 import OrientalTab from './components/OrientalTab'
 import { selectArtworkForPhoto } from './utils/colorMatching'
-import artworksData from './data/oriental-artworks-database.json'
+import artworksDatabase from './data/oriental-artworks-database.json'
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -13,7 +13,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const fileInputRef = useRef(null)
 
-  // 파일 선택 핸들러
+  // File selection handler
   const handleImageUpload = (e) => {
     const file = e.target.files[0]
     if (file && file.type.startsWith('image/')) {
@@ -27,30 +27,30 @@ function App() {
     }
   }
 
-  // 작품 선택 핸들러
+  // Artwork selection handler
   const handleArtworkSelect = (artwork) => {
     setSelectedArtwork(artwork)
   }
 
-  // AI 자동 매칭 (동양화만)
+  // AI Auto Matching (Oriental art only)
   const handleAutoMatch = async () => {
     if (!selectedImage || !selectedCategory) {
       alert('사진과 카테고리를 먼저 선택해주세요!')
       return
     }
 
-    // 이미지 로드
+    // Load image
     const img = new Image()
     img.src = selectedImage
     
     img.onload = () => {
-      const bestArtwork = selectArtworkForPhoto(img, artworksData, selectedCategory)
+      const bestArtwork = selectArtworkForPhoto(img, artworksDatabase, selectedCategory)
       setSelectedArtwork(bestArtwork)
       alert(`AI가 추천한 작품: ${bestArtwork.title}`)
     }
   }
 
-  // 스타일 변환 실행
+  // Execute style transfer
   const handleStyleTransfer = async () => {
     if (!selectedImage || !selectedArtwork) {
       alert('사진과 작품을 모두 선택해주세요!')
@@ -60,7 +60,7 @@ function App() {
     setIsProcessing(true)
     
     try {
-      // Hugging Face API 호출
+      // Call Hugging Face API
       const response = await fetch('/api/style-transfer', {
         method: 'POST',
         headers: {
@@ -89,7 +89,7 @@ function App() {
     }
   }
 
-  // 결과 다운로드
+  // Download result
   const handleDownload = () => {
     if (!resultImage) return
     
@@ -99,7 +99,7 @@ function App() {
     link.click()
   }
 
-  // 초기화
+  // Reset
   const handleReset = () => {
     setSelectedImage(null)
     setSelectedArtwork(null)
@@ -121,7 +121,7 @@ function App() {
       {/* Main Content */}
       <div className="app-container">
         
-        {/* Step 1: 사진 업로드 */}
+        {/* Step 1: Upload Photo */}
         <section className="section upload-section">
           <h2>1️⃣ 사진 업로드</h2>
           <div className="upload-area">
@@ -144,11 +144,11 @@ function App() {
           </div>
         </section>
 
-        {/* Step 2: 카테고리 & 작품 선택 */}
+        {/* Step 2: Select Category & Artwork */}
         <section className="section artwork-section">
           <h2>2️⃣ 작품 스타일 선택</h2>
           
-          {/* 탭 선택 */}
+          {/* Tab Selection */}
           <div className="tab-buttons">
             <button 
               className={`tab-button ${activeTab === 'western' ? 'active' : ''}`}
@@ -164,7 +164,7 @@ function App() {
             </button>
           </div>
 
-          {/* 서양화 탭 */}
+          {/* Western Art Tab */}
           {activeTab === 'western' && (
             <div className="western-tab">
               <div className="category-grid">
@@ -213,16 +213,17 @@ function App() {
             </div>
           )}
 
-          {/* 동양화 탭 */}
+          {/* Oriental Art Tab */}
           {activeTab === 'oriental' && (
             <OrientalTab 
+              artworkDatabase={artworksDatabase}
               onArtworkSelect={handleArtworkSelect}
               onCategoryChange={setSelectedCategory}
               selectedArtwork={selectedArtwork}
             />
           )}
 
-          {/* AI 자동 매칭 버튼 (동양화만) */}
+          {/* AI Auto Match Button (Oriental only) */}
           {activeTab === 'oriental' && selectedImage && selectedCategory && (
             <button className="auto-match-button" onClick={handleAutoMatch}>
               🤖 AI 자동 추천
@@ -230,7 +231,7 @@ function App() {
           )}
         </section>
 
-        {/* Step 3: 스타일 변환 */}
+        {/* Step 3: Style Transfer */}
         <section className="section transform-section">
           <h2>3️⃣ 스타일 변환</h2>
           <div className="transform-controls">
@@ -249,7 +250,7 @@ function App() {
             </button>
           </div>
 
-          {/* 결과 표시 */}
+          {/* Result Display */}
           {resultImage && (
             <div className="result-container">
               <h3>✅ 변환 완료!</h3>
@@ -260,7 +261,7 @@ function App() {
             </div>
           )}
 
-          {/* 처리 중 표시 */}
+          {/* Processing Display */}
           {isProcessing && (
             <div className="processing-overlay">
               <div className="spinner"></div>
@@ -269,7 +270,7 @@ function App() {
           )}
         </section>
 
-        {/* 선택된 정보 표시 */}
+        {/* Selected Info Display */}
         {(selectedImage || selectedArtwork) && (
           <section className="section info-section">
             <h3>📋 선택 정보</h3>
@@ -298,7 +299,7 @@ function App() {
       {/* Footer */}
       <footer className="app-footer">
         <p>PicoArt v10 | 특허: 10-2018-0016297, 10-2018-0122600</p>
-        <p>서양화 98개 + 동양화 45개 = 총 143개 명화</p>
+        <p>서양화 98개 + 동양화 45개 = 이 143개 명화</p>
       </footer>
     </div>
   )
